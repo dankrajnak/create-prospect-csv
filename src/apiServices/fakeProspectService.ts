@@ -51,9 +51,9 @@ export const createProspect = ({ email }: ProspectOptions): Prospect => {
   const isMale = gender === "Male";
 
   const prospect: Prospect = {
-    firstName: faker.unique(faker.name.firstName, [isMale ? "male" : "female"]),
-    lastName: faker.unique(faker.name.lastName),
-    middleName: faker.unique(faker.name.middleName),
+    firstName: faker.name.firstName(isMale ? "male" : "female"),
+    lastName: faker.name.lastName(),
+    middleName: faker.name.middleName(),
     nickName: "",
     emailAddress: email,
     birthDate: getDateString(faker.date.birthdate({ min: 1980, max: 2005 })),
